@@ -1,0 +1,179 @@
+#
+# Cisco IOS Commands
+#
+!!npx.cisco.parser.CiscoCommand
+commandName: '[root]'
+children:
+# next 2 are important to check which cisco os it is running (fwsm, pix, ios)
+- commandName: 'FWSM Version'
+- commandName: 'PIX Version'
+- commandName: version
+# next tokens are used for IP interface names and addressing 
+- commandName: interface
+  children:
+  - commandName: description
+  - commandName: 'ip address'
+  - commandName: 'ip vrf'
+  - commandName: nameif
+  - commandName: switchport
+  - commandName: speed
+  - commandName: duplex
+  - commandName: spanning-tree
+  - commandName: shutdown
+  - commandName: security-level
+- commandName: hostname
+- commandName: nameif
+- commandName: 'ip access-list'
+- commandName: 'ip classless'
+- commandName: 'ip default-gateway'
+- commandName: 'ip domain-name'
+- commandName: 'ip flow-export'
+- commandName: 'ip host'
+- commandName: 'ip inspect'
+- commandName: 'ip route'
+- commandName: 'ip ssh'
+- commandName: 'ip subnet-zero'
+- commandName: 'ipv6 mfib'
+- commandName: ip
+- commandName: ipv6
+# 'ip address' as a root command is used in FWSM and PIX versions
+- commandName: 'ip address'
+# ip routing commands
+- commandName: route
+- commandName: route-map
+- commandName: router
+---
+#
+# Ignored Cisco IOS Commands
+#
+!!npx.cisco.parser.CiscoCommand
+commandName: '[root]'
+children:
+- commandName: ':'
+- commandName: aaa
+- commandName: aaa-server
+- commandName: access-group
+- commandName: access-list
+- commandName: arp
+- commandName: asdm
+- commandName: banner
+#- commandName: banner exec
+#- commandName: banner incoming
+#- commandName: banner login
+#- commandName: banner motd
+#- commandName: banner slip-ppp
+- commandName: boot
+- commandName: boot-end-marker
+- commandName: '!BootFlash:'
+- commandName: '!BOOTLDR:'
+- commandName: boot-start-marker
+- commandName: call-home
+- commandName: '!Catalyst'
+- commandName: '!Chassis'
+- commandName: chat-script
+- commandName: class
+- commandName: class-map
+- commandName: clock
+- commandName: config-register
+- commandName: console
+- commandName: control-plane
+- commandName: copy
+- commandName: '!CPU:'
+- commandName: crypto
+- commandName: description
+- commandName: dhcpd
+- commandName: dhcprelay
+- commandName: diagnostic
+- commandName: dial-peer
+- commandName: domain-name
+- commandName: enable
+- commandName: established
+- commandName: fabric
+- commandName: failover
+- commandName: firewall
+- commandName: fixup
+- commandName: '!Flash:'
+- commandName: floodguard
+- commandName: fragment
+- commandName: global
+- commandName: http
+- commandName: icmp
+- commandName: '!Image:'
+- commandName: inspect
+- commandName: isakmp
+- commandName: key
+- commandName: line
+- commandName: logging
+- commandName: mac-address-table
+- commandName: match
+- commandName: '!Memory:'
+- commandName: mls
+- commandName: '!Model'
+- commandName: module
+  children:
+  - commandName: 'ft group'
+  - commandName: priority
+  - commandName: heartbeat-time
+  - commandName: failover
+  - commandName: preempt
+  - commandName: vlan
+  - commandName: description
+  - commandName: 'ip address'
+  - commandName: gateway
+- commandName: monitor
+- commandName: monitor-interface
+- commandName: '!Motherboard'
+- commandName: mpls
+- commandName: mtu
+- commandName: name
+#- commandName: nameif
+- commandName: names
+- commandName: nat
+- commandName: nat-control
+- commandName: network-object
+- commandName: 'no'
+- commandName: ntp
+- commandName: object-group
+- commandName: pager
+- commandName: passwd
+- commandName: pdm
+- commandName: policy-map
+  children:
+  - commandName: class
+- commandName: port-object
+- commandName: power
+- commandName: '!Power'
+- commandName: '!Power:'
+- commandName: privilege
+- commandName: '!Processor'
+- commandName: radius-server
+- commandName: '!RANCID-CONTENT-TYPE:'
+- commandName: reactivation-mode
+- commandName: redundancy
+- commandName: '!ROM'
+- commandName: same-security-traffic
+- commandName: scheduler
+- commandName: security-level
+- commandName: '!Serial'
+- commandName: service
+- commandName: service-policy
+- commandName: '!Slot'
+- commandName: snmp-server
+- commandName: spanning-tree
+- commandName: ssh
+- commandName: static
+- commandName: svclc
+- commandName: sysopt
+- commandName: system
+- commandName: tacacs-server
+- commandName: telnet
+- commandName: terminal
+- commandName: tftp-server
+- commandName: timeout
+- commandName: upgrade
+- commandName: username
+- commandName: '!Variable:'
+- commandName: vlan
+- commandName: '!VLAN:'
+- commandName: vtp
+- commandName: '!VTP:'
